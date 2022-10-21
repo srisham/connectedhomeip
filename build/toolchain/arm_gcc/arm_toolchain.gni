@@ -17,8 +17,9 @@ import("//build_overrides/build.gni")
 import("${build_root}/toolchain/gcc_toolchain.gni")
 
 template("arm_toolchain") {
-  gcc_toolchain(target_name) {
-    _tool_name_root = "arm-none-eabi-"
+  gcc_toolchain(arm_toolchain) {
+    _toolchain_home = "/opt/toolchain/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/"
+    _tool_name_root = "${_toolchain_home}/aarch64-none-linux-gnu-"
     ar = _tool_name_root + "ar"
     cc = _tool_name_root + "gcc"
     cxx = _tool_name_root + "g++"

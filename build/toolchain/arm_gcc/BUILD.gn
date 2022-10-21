@@ -15,7 +15,18 @@
 
 import("arm_toolchain.gni")
 
-arm_toolchain("arm_gcc") {
+gcc_toolchain("aarch64-none") {
+  _tool_name_root = "/opt/toolchain/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-"
+  ar = _tool_name_root + "ar"
+  cc = _tool_name_root + "gcc"
+  cxx = _tool_name_root + "g++"
+
   toolchain_args = {
+      current_cpu = "aarch64"
+      current_os = "linux"
+      is_clang = false
+
   }
 }
+
+
